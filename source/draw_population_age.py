@@ -29,5 +29,5 @@ plt.xlabel("西元年",fontsize=16)
 plt.ylabel("年齡",fontsize=16)
 plt.yticks(rotation=0)
 plt.tight_layout() #最佳化尺寸
-plt.savefig("../picture/Figure_2")
+plt.savefig("../picture/heatmap_population_age.png")
 plt.show() #畫出圖形

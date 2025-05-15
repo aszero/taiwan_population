@@ -74,5 +74,5 @@ plt.xticks(list(range(1945,2041,5))) #修改座標節點名稱
 plt.title("1946-2024年 台灣人口數變化 及 出生死亡人數變化",fontsize=20) #增加圖表標題
 
 plt.tight_layout() #最佳化尺寸
-plt.savefig("../picture/Figure_1")
+plt.savefig("../picture/population_total_review.png")
 plt.show() #畫出圖形
