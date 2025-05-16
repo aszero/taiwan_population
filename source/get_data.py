@@ -1,6 +1,6 @@
 import pandas as pd
 
-def get_born(fn = "../data/born.xls") -> pd.DataFrame:
+def get_born(fn = "../data/born.xlsx") -> pd.DataFrame:
     """
     fn:資料表檔案位置
         讀取台灣出生數及粗出生率(按登記及發生)資料表並整理後回傳
@@ -25,7 +25,7 @@ def get_born(fn = "../data/born.xls") -> pd.DataFrame:
     born_clear = pd.concat([born, born2.iloc[30:]],ignore_index=True)
     return born_clear
 
-def get_death(fn = "../data/death.xls") -> pd.DataFrame:
+def get_death(fn = "../data/death.xlsx") -> pd.DataFrame:
     """
     fn:資料表檔案位置
         讀取台灣死亡數及粗死亡率(按登記及發生)資料表並整理後回傳
@@ -50,7 +50,7 @@ def get_death(fn = "../data/death.xls") -> pd.DataFrame:
     death_clear = pd.concat([death, death2.iloc[51:]],ignore_index=True)
     return death_clear
 
-def get_pop(fn = "../data/population.xls") -> pd.DataFrame:
+def get_pop(fn = "../data/population.xlsx") -> pd.DataFrame:
     """
     fn:資料表檔案位置
         讀取台灣人口年增加及出生死亡率資料表並整理後回傳
@@ -74,7 +74,8 @@ def get_pop(fn = "../data/population.xls") -> pd.DataFrame:
     #合併
     pop_clear = pd.concat([pop, pop2.iloc[51:]],ignore_index=True)
     return pop_clear
-def get_pop_every_age(fn = "population_with_age.xls") -> list:
+
+def get_pop_every_age(fn = "population_with_age.xlsx") -> list:
     """
     fn:資料表檔案位置
         讀取台灣年底人口按性別及年齡資料表並整理後回傳
@@ -107,7 +108,7 @@ def get_pop_every_age(fn = "population_with_age.xls") -> list:
     data = [age_total, age_male, age_female]#組成一個List回傳
     return data
 
-def get_pop_age(fn = "../data/population_with_age.xls") -> list:
+def get_pop_age(fn = "../data/population_with_age.xlsx") -> list:
     """
     fn:資料表檔案位置
         讀取台灣年底人口按性別及年齡資料表並整理後回傳
@@ -140,7 +141,7 @@ def get_pop_age(fn = "../data/population_with_age.xls") -> list:
     data = [age_total, age_male, age_female]#組成一個List回傳
     return data
 
-def get_death_age(fn = "../data/death_with_age.xls", start_idx = 0) -> list:
+def get_death_age(fn = "../data/death_with_age.xlsx", start_idx = 0) -> list:
     """
     fn:資料表檔案位置
         讀取台灣死亡人口按性別及年齡資料表並整理後回傳
@@ -176,9 +177,9 @@ def get_death_age(fn = "../data/death_with_age.xls", start_idx = 0) -> list:
             age_female.iloc[start_idx:]]#組成一個List回傳
     return data
 
-def fetch_data(fborn = "../data/born.xls", 
-               fdeath = "../data/death.xls", 
-               fpop = "../data/population.xls") -> pd.DataFrame:
+def fetch_data(fborn = "../data/born.xlsx", 
+               fdeath = "../data/death.xlsx", 
+               fpop = "../data/population.xlsx") -> pd.DataFrame:
     #讀取資料
     born = get_born(fborn)
     death = get_death(fdeath)
