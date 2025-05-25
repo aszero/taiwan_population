@@ -28,15 +28,16 @@
 ```bash
 .
 ├── source/                         # 主程式與繪圖腳本
-│   ├── get_data.py                # 讀取並處理各類人口資料
-│   ├── draw_trend.py              # 繪製總人口出生死亡趨勢圖
-│   ├── draw_heatmap_age.py        # 年齡分布熱力圖
-│   ├── draw_violin_population.py  # 小提琴圖（年齡/性別）
-│   ├── draw_animation.py          # 自動產生 GIF 動畫
+│   ├── get_data.py
+│   ├── draw_violin_population_age_sex_each.py
+│   ├── draw_heatmap_age.py
+│   ├── draw_animation.py
 │   └── ...
-├── picture/                       # 輸出圖表與動畫
-├── data/                          # Excel 原始資料
-└── README.md
+├── picture/                       # 輸出圖表與動畫（非必須上傳）
+├── data/                          # 原始資料（Excel 格式）
+├── requirements.txt              # 安裝依賴套件
+├── LICENSE                       # 授權條款（MIT）
+└── README.md                     # 專案說明
 ```
 
 ---
@@ -49,13 +50,13 @@
 pip install -r requirements.txt
 ```
 
-2. 執行任一腳本，例如：
+2. 執行圖表腳本，例如：
 
 ```bash
 python source/draw_violin_population_age_sex_each.py
 ```
 
-3. GIF 產生（需安裝 imageio）：
+3. 產生動畫（需先安裝 `imageio`）：
 
 ```bash
 python source/draw_animation.py
@@ -63,25 +64,33 @@ python source/draw_animation.py
 
 ---
 
-## 🧠 可視化示意（部分圖）
+## 🧠 可視化範例（示意）
 
-> （請貼圖）
-
-- 熱力圖：年齡 vs 年份人口分布
-- 小提琴圖：性別左右對稱年齡結構圖
-- 動畫：人口結構年變化 GIF
+> 🔹 小提琴圖：顯示各年齡層人口左右性別分佈  
+> 🔹 熱力圖：年齡 vs 年份分布視覺化  
+> 🔹 GIF 動畫：人口年齡結構變化過程（1946~2024）
 
 ---
 
-## 📌 延伸目標（可開 Issue）
+## 🛠️ 相依套件安裝
 
-- [ ] 增加各縣市分區人口分布分析
-- [ ] 計算平均年齡趨勢
-- [ ] 推估未來 10 年人口結構變化
-- [ ] 加入互動式圖表（如 Dash / Plotly）
+請使用以下指令安裝本專案所需套件：
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
 ## 📄 授權 License
 
-資料來源為公開資料，本專案程式碼依 MIT License 開源。
+本專案採用 [MIT License](LICENSE) 授權，代表你可以自由地使用、修改與發佈本程式碼，但需保留原始授權聲明。  
+詳見 LICENSE 檔案。
+
+---
+
+## 📌 延伸目標（可開 Issue）
+
+- [ ] 加入各縣市人口分佈分析
+- [ ] 加入平均年齡、人口中位數趨勢圖
+- [ ] 使用 Streamlit 或 Dash 製作互動式人口資料平台
