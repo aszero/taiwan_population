@@ -6,6 +6,7 @@ from get_data import fetch_data
 
 total = fetch_data()
 
+print(total.tail(10))
 #讓圖表顯示中文字體
 plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']  
 plt.rcParams['axes.unicode_minus'] = False
@@ -20,7 +21,7 @@ plt.rcParams['axes.unicode_minus'] = False
 # plt.show()
 
 #來畫個雙軸
-fig, ax1=plt.subplots(figsize=(10,6))
+fig, ax1=plt.subplots(figsize=(13,7))
 sns.lineplot(total, x = "Year_yyyy", y = "total", label="總人口")
 ax1.set_ylabel("總人口",color="blue",fontsize=16)
 ax1.set_xlabel("西元年")
@@ -60,6 +61,7 @@ ax2.set_ylim(0,600)
 ax2.text(2019,175,"{:^s}\n{:^4d}\n{:^10s}".format("↑",2019,"人口負成長"),ha="center", va="top") #畫出生死交叉點
 ax2.text(2022.1,206,"{:^10s}\n{:^4d}\n{:^10s}".format("COVID-19",2022,"↓"),ha="center", va="bottom") #畫出異常值
 ax2.text(2037.3,0,"{:^10s}\n{:^4d}\n{:^s}".format("出生率歸0",2037,"↓"),ha="center", va="bottom",color="red") #畫出出生歸0點
+ax2.text(2019,546,"{:^s}\n{:^4d}\n{:^10s}".format("↑",2019,"人口最高峰"),ha="center", va="top") #畫出生死交叉點
 
 #根據預測的生死值來預測人口數的變化
 y_death = np.array(y_death_ext[1:])
@@ -69,8 +71,8 @@ y_total = total["total"].iloc[-1] + np.cumsum(np.insert(y_delta,0,0))
 ax1.plot(x_ext, y_total.tolist(), linestyle="--", color="blue")
 ax1.grid(axis="x")
 
-plt.xlim(1945,2040) #修改上下限
-plt.xticks(list(range(1945,2041,5))) #修改座標節點名稱
+plt.xlim(1946,2040) #修改上下限
+plt.xticks([1946]+list(range(1950,2041,5))) #修改座標節點名稱
 plt.title("1946-2024年 台灣人口數變化 及 出生死亡人數變化",fontsize=20) #增加圖表標題
 
 plt.tight_layout() #最佳化尺寸

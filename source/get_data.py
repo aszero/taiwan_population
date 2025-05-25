@@ -75,7 +75,7 @@ def get_pop(fn = "../data/population.xlsx") -> pd.DataFrame:
     pop_clear = pd.concat([pop, pop2.iloc[51:]],ignore_index=True)
     return pop_clear
 
-def get_pop_every_age(fn = "population_with_age.xlsx") -> list:
+def get_pop_every_age(fn = "../data/population_with_age.xlsx") -> list:
     """
     fn:資料表檔案位置
         讀取台灣年底人口按性別及年齡資料表並整理後回傳
